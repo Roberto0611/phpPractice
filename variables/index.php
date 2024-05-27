@@ -1,29 +1,20 @@
 <?php 
-	$post_1_titulo = 'lorem ipsum dolor sit amet';
-	$post_1_contenido = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto perferendis sed maiores hic earum mollitia, aspernatur necessitatibus, optio pariatur repellat modi adipisci sunt quia repellendus officiis obcaecati soluta unde laudantium!';
-
-	$post_2_titulo = 'Lorem ipsum sit amet dolor';
-	$post_2_contenido = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat earum animi totam enim doloribus nulla, necessitatibus consectetur magnam, facilis in voluptatum dicta ut nam debitis odio, suscipit voluptas sed dolorem?';
-
-	function get_post_1_titulo(){
-		$post_1_titulo = 'lorem ipsum dolor sit amet';
-		return $post_1_titulo;
-	}
-
-	function get_post_2_titulo(){
-		$post_2_titulo = 'Lorem ipsum sit amet dolor';
-		return $post_2_titulo;
-	}
-
-	function get_post_1_contenido(){
-		$post_1_contenido = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto perferendis sed maiores hic earum mollitia, aspernatur necessitatibus, optio pariatur repellat modi adipisci sunt quia repellendus officiis obcaecati soluta unde laudantium!';
-		return $post_1_contenido;
-	}
-
-	function get_post_2_contenido(){
-		$post_2_contenido = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat earum animi totam enim doloribus nulla, necessitatibus consectetur magnam, facilis in voluptatum dicta ut nam debitis odio, suscipit voluptas sed dolorem?';
-		return $post_2_contenido;
-	}
+	$all_posts = [
+		[
+			'id' => 1,
+			'title' => 'Lorem ipsum dolor sit amet',
+			'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae pulvinar turpis',
+			'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae pulvinar turpis. Nam ut arcu tellus. Morbi sit amet elit lacinia, tincidunt leo a, posuere mi. Mauris nec odio at quam lacinia consequat. Fusce mattis orci ex, eget accumsan neque vehicula et. Vivamus consectetur tempor lacus, in tincidunt massa rutrum ut. Pellentesque augue felis, iaculis eu interdum et, semper eu purus. Vestibulum a viverra justo.',
+			'published_on' => '2018-01-11 10:15:00',
+		],
+		[
+			'id' => 2,
+			'title' => 'Nunc eget enim vulputate',
+			'excerpt' => 'Integer placerat hendrerit pharetra. Nunc eget enim vulputate, efficitur dolor pretium',
+			'content' => 'Integer placerat hendrerit pharetra. Nunc eget enim vulputate, efficitur dolor pretium, pharetra nulla. Proin mattis aliquam sem. Morbi vel mi ac magna consequat tempus vitae eget diam. Aliquam ac sapien a tortor rutrum faucibus nec nec urna. Ut et nisl magna. Vivamus elit risus, rhoncus vitae elit suscipit, porta pulvinar justo. Aliquam sodales urna eu scelerisque ultrices. Fusce et neque id risus gravida vestibulum a et urna. Curabitur aliquam accumsan leo, pharetra tempus velit condimentum et. Donec dapibus faucibus lorem a tincidunt. Donec ultricies id metus et aliquam. Vestibulum dapibus magna nec elit ultrices, ornare pretium nisi dictum.',
+			'published_on' => '2018-01-11 10:15:00',
+		],
+	];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,14 +38,21 @@
 
 <div id="content">
 	<div class="posts">
-		<div>
-			<h2><?php echo get_post_1_titulo(); ?></h2>
-			<div><?php echo get_post_1_contenido(); ?></div>
-		</div>
-		<div>
-			<h2><?php echo get_post_2_titulo(); ?></h2>
-			<div><?php echo get_post_2_contenido(); ?></div>
-		</div>
+		<article class="post">
+			<header>
+				<h2 class="post-title"><?php echo $all_posts[0]['title']; ?></h2>
+			</header>
+			<div class="post-content"> <?php echo $all_posts[0]['content']; ?></div>
+			<footer></footer>
+		</article>
+
+		<article class="post">
+			<header>
+				<h2 class="post-title"><?php echo $all_posts[1]['title']; ?></h2>
+			</header>
+			<div class="post-content"> <?php echo $all_posts[1]['content']; ?></div>
+			<footer></footer>
+		</article>
 	</div>
 </div>
 
