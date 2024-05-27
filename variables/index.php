@@ -5,19 +5,26 @@
 	$post_2_titulo = 'Lorem ipsum sit amet dolor';
 	$post_2_contenido = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat earum animi totam enim doloribus nulla, necessitatibus consectetur magnam, facilis in voluptatum dicta ut nam debitis odio, suscipit voluptas sed dolorem?';
 
-	function que_dia_es_hoy(){
-		echo 'hoy es'. date(' l');
+	function get_post_1_titulo(){
+		$post_1_titulo = 'lorem ipsum dolor sit amet';
+		return $post_1_titulo;
 	}
 
-	function incrementa($num, $inc = 1){
-		return $num + $inc;
+	function get_post_2_titulo(){
+		$post_2_titulo = 'Lorem ipsum sit amet dolor';
+		return $post_2_titulo;
+	}
+
+	function get_post_1_contenido(){
+		$post_1_contenido = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto perferendis sed maiores hic earum mollitia, aspernatur necessitatibus, optio pariatur repellat modi adipisci sunt quia repellendus officiis obcaecati soluta unde laudantium!';
+		return $post_1_contenido;
+	}
+
+	function get_post_2_contenido(){
+		$post_2_contenido = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat earum animi totam enim doloribus nulla, necessitatibus consectetur magnam, facilis in voluptatum dicta ut nam debitis odio, suscipit voluptas sed dolorem?';
+		return $post_2_contenido;
 	}
 ?>
-
-<h1><?php echo incrementa(10) ?> </h1>
-<h1><?php echo incrementa(10,5) ?> </h1>
-<h1><?php que_dia_es_hoy() ?> </h1>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,12 +48,12 @@
 <div id="content">
 	<div class="posts">
 		<div>
-			<h2><?php echo $post_1_titulo; ?></h2>
-			<div><?php echo $post_1_contenido; ?></div>
+			<h2><?php echo get_post_1_titulo(); ?></h2>
+			<div><?php echo get_post_1_contenido(); ?></div>
 		</div>
 		<div>
-			<h2><?php echo $post_1_titulo; ?></h2>
-			<div><?php echo $post_1_contenido; ?></div>
+			<h2><?php echo get_post_2_titulo(); ?></h2>
+			<div><?php echo get_post_2_contenido(); ?></div>
 		</div>
 	</div>
 </div>
