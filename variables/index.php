@@ -38,21 +38,16 @@
 
 <div id="content">
 	<div class="posts">
-		<article class="post">
-			<header>
-				<h2 class="post-title"><?php echo $all_posts[0]['title']; ?></h2>
-			</header>
-			<div class="post-content"> <?php echo $all_posts[0]['content']; ?></div>
-			<footer></footer>
-		</article>
-
-		<article class="post">
-			<header>
-				<h2 class="post-title"><?php echo $all_posts[1]['title']; ?></h2>
-			</header>
-			<div class="post-content"> <?php echo $all_posts[1]['content']; ?></div>
-			<footer></footer>
-		</article>
+		<?php foreach ($all_posts as $post):?> 
+			<article class="post">
+				<header>
+					<h2 class="post-title"><?php echo $post['title']; ?></h2>
+				</header>
+				<div class="post-content"> <?php echo $post['content']; ?></div>
+				<footer></footer>
+			</article>
+		<?php endforeach ?>
+		
 	</div>
 </div>
 
