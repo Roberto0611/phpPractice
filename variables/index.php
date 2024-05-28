@@ -18,6 +18,17 @@
 			'published_on' => '2018-01-11 10:15:00',
 		],
 	];
+
+	$post_found = false;
+
+	if(isset($_GET['view'])){
+		foreach ($all_posts as $post) {
+			if($post['id'] == $_GET['view']){
+				$post_found = TRUE;
+				$all_posts = [$post];				
+			}
+		} 
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,24 +50,32 @@
 	</div>
 </nav>
 
-<div id="content">
+<div id="content" >
 	<div class="posts">
-		<?php foreach ($all_posts as $post):?> 
+		<?php foreach ( $all_posts as $post ): ?>
 			<article class="post">
 				<header>
-					<h2 class="post-title"><?php echo $post['title']; ?></h2>
+					<h2 class="post-title">
+						<a href="?view=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+					</h2>
 				</header>
-				<div class="post-content"> <?php echo $post['content']; ?></div>
+				<div class="post-content">
+					<?php if ( $post_found ): 
+						// Si encontramos el post encontramos los posts
+						echo $post['content']; ?>
+					<?php else: 
+						// Si no solo mostramos la vista previa de nustros blogs
+						 echo $post['excerpt']; ?>
+					<?php endif; ?>
+				</div>
 				<footer>
 					<span class="post-date">
 						Publicada en:
-						<?php 
-							echo strftime('%d %b %Y',strtotime($post['published_on']));
-						?>
+						<?php	echo strftime( '%d %b %Y', strtotime( $post['published_on'] ) );	?>
 					</span>
 				</footer>
 			</article>
-		<?php endforeach ?>
+		<?php endforeach; ?>
 	</div>
 </div>
 
