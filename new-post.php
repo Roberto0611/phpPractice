@@ -6,8 +6,8 @@
 	$title = '';
 	$excerpt = '';
 	$content = '';
-	// Se ha enviado el formulario?
 
+	// Se ha enviado el formulario?
 	if (isset($_POST['submit-new-post'])) {
 		// si se ha enviado
 		$title = $_POST['title']; // Recordar que los nombres vienen del nombre del formulario
@@ -18,16 +18,8 @@
 		if(empty($title) || empty($content)){
 			$error = true;
 		}else{
-			$new_post = [
-				'id' => 0,
-				'title' => $title,
-				'excerpt' => $excerpt,
-				'content' => $content,
-				'published_on' => date(' Y-m-d H:i:s')
-			];
-	
-			var_dump($new_post);
-			die('Formulario enviado');
+
+			insert_post($title,$excerpt,$content);
 		}	
 	}
 ?>
