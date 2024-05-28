@@ -1,4 +1,7 @@
 <?php 
+	setlocale(LC_TIME, 'es', 'spa', 'es_ES');
+	date_default_timezone_set("America/Tijuana");
+
 	$all_posts = [
 		[
 			'id' => 1,
@@ -44,10 +47,16 @@
 					<h2 class="post-title"><?php echo $post['title']; ?></h2>
 				</header>
 				<div class="post-content"> <?php echo $post['content']; ?></div>
-				<footer></footer>
+				<footer>
+					<span class="post-date">
+						Publicada en:
+						<?php 
+							echo strftime('%d %b %Y',strtotime($post['published_on']));
+						?>
+					</span>
+				</footer>
 			</article>
 		<?php endforeach ?>
-		
 	</div>
 </div>
 
