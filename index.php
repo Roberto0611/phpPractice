@@ -11,10 +11,21 @@
 			$all_posts = [$post_found];
 		}
 	}
+
+	if (isset($_GET['delete-post'])) {
+		$id = $_GET['delete-post'];
+		delete_post($id);
+		redirect_to('index.php');
+		die();
+	}
 ?>
 
 <?php require('templates/header.php'); ?>
-
+<?php if(isset($_GET['success'])):?>
+	<div class="success">
+		El post ha sido creado 
+	</div>
+<?php endif ?>
 	<div class="posts">
 		<?php foreach ( $all_posts as $post ): ?>
 			<article class="post">
@@ -37,6 +48,9 @@
 						Publicada en:
 						<?php	echo strftime( '%d %b %Y', strtotime( $post['published_on'] ) );	?>
 					</span>
+					<div class="delete-post">
+						<a href="?delete-post=<?php echo $post['id']; ?>">Eliminar post</a>
+					</div>
 				</footer>
 			</article>
 		<?php endforeach; ?>

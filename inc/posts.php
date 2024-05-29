@@ -30,3 +30,12 @@ function insert_post($title,$excerpt,$content){
 		die(mysqli_error($app_db));
 	}
 }
+
+function delete_post( $id ) {
+	global $app_db;
+
+	$result = mysqli_query( $app_db, "DELETE FROM posts WHERE id = $id" );
+	if ( ! $result ) {
+		die( mysqli_error( $app_db ) );
+	}
+}

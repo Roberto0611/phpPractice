@@ -1,6 +1,4 @@
 <?php require('init.php'); ?>
-<?php require('templates/header.php'); ?>
-
 <?php 
 	$error = false;
 	$title = '';
@@ -18,11 +16,15 @@
 		if(empty($title) || empty($content)){
 			$error = true;
 		}else{
-
 			insert_post($title,$excerpt,$content);
+			//Redirigir al blog
+			redirect_to("index.php?success=true");
+			die();
 		}	
 	}
 ?>
+
+<?php require('templates/header.php'); ?>
 
 <h2>Crear nuevo Post</h2>
 
