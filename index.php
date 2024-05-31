@@ -13,7 +13,12 @@
 	}
 
 	if (isset($_GET['delete-post'])) {
+
 		$id = $_GET['delete-post'];
+
+		if ( !checkHash('delete-post-' . $id, $_GET['hash'])){
+			die("Hackeando no?");
+		}
 		delete_post($id);
 		redirect_to('index.php');
 		die();
@@ -49,7 +54,7 @@
 						<?php	echo strftime( '%d %b %Y', strtotime( $post['published_on'] ) );	?>
 					</span>
 					<div class="delete-post">
-						<a href="?delete-post=<?php echo $post['id']; ?>">Eliminar post</a>
+						<a href="?delete-post=<?php echo $post['id']; ?>&hash=<?php echo generate_hash('delete-post-' . $post['id']); ?>">Eliminar post</a>
 					</div>
 				</footer>
 			</article>

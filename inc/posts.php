@@ -10,7 +10,8 @@ function get_all_posts(){
 
 function get_post($post_id){
     global $app_db;
-	$query = "SELECT * FROM posts WHERE id = " . $_GET['view'];
+
+	$query = "SELECT * FROM posts WHERE id = " . $post_id;
 	$result = mysqli_query($app_db, $query);
 	if (! $result) {
 		die(mysqli_error($app_db));
@@ -21,6 +22,11 @@ function get_post($post_id){
 function insert_post($title,$excerpt,$content){
 	global $app_db;
 	$published_on =  date(' Y-m-d H:i:s');
+
+	$title = mysqli_real_escape_string($app_db,$title);
+	$excerpt = mysqli_real_escape_string($app_db,$excerpt);	
+	$content = mysqli_real_escape_string($app_db,$content);
+
 	$query = "INSERT INTO posts 
 	(title, excerpt, content, published_on)
 	VALUES ('$title','$excerpt','$content','$published_on')";
