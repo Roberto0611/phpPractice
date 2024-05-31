@@ -5,6 +5,8 @@ if (!file_exists('config.php')) {
 	die('Error no existe config.php');
 }
 
+session_start();
+
 setlocale(LC_TIME, SITE_LANG);
 date_default_timezone_set(SITE_TIMEZONE);
 
@@ -16,3 +18,8 @@ if($app_db === false){
 
 require('inc/posts.php');
 require('inc/helper.php');
+
+// Log-Out
+if (isset($_GET['logout'])) {
+	logout();
+}

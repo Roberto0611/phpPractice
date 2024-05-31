@@ -9,3 +9,6 @@ define( 'DB_USER', 'root' );
 define( 'DB_PASSWORD', 'Roberto0611#' );
 define( 'DB_DATABASE', 'microcms' );
 define( 'DB_PORT', '3307' );
+
+define('ADMINE_USER',"Roberto");
+define('ADMIN_PASS',"ROC0611#");
