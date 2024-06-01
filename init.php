@@ -1,7 +1,7 @@
 <?php
 require('config.php');
 
-if (!file_exists('config.php')) {
+if (!file_exists(__DIR__ . '/config.php')) {
 	die('Error no existe config.php');
 }
 
